@@ -1,3 +1,4 @@
+import Hero from "@/Components/HomePages/Hero";
 import Head from "next/head";
 import { Fragment } from "react";
 
@@ -11,8 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Hero />
-      <FeaturedPosts />
+      <Hero/>
+      {/* <FeaturedPosts /> */}
     </Fragment>
   );
 }
