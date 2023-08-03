@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import { GetStaticProps } from "next";
+import { getFeaturedPosts } from "../lib/posts-util";
 import Head from "next/head";
 import Hero from "@/Components/HomePages/Hero";
 import FeaturedPosts from "@/Components/HomePages/Featured-Posts";
@@ -15,26 +17,29 @@ const DUMMAY_DATA = [
     slug: "Getting-Started-with-NextJS",
     title: "Getting Started with NextJS",
     image: "getting-started-nextjs.png",
-    excerpt: "NeatJS is a the React framework for production-it makes building fullstack React apps and sites a breaze and ships with bullt-in SSR.",
+    excerpt:
+      "NeatJS is a the React framework for production-it makes building fullstack React apps and sites a breaze and ships with bullt-in SSR.",
     date: "11-18-2023",
   },
   {
     slug: "Getting-Started-with-NextJS2",
     title: "Getting Started with NextJS",
     image: "getting-started-nextjs.png",
-    excerpt: "NeatJS is a the React framework for production-it makes building fullstack React apps and sites a breaze and ships with bullt-in SSR.",
+    excerpt:
+      "NeatJS is a the React framework for production-it makes building fullstack React apps and sites a breaze and ships with bullt-in SSR.",
     date: "11-18-2023",
   },
   {
     slug: "Getting-Started-with-NextJS3",
     title: "Getting Started with NextJS",
     image: "getting-started-nextjs.png",
-    excerpt: "NeatJS is a the React framework for production-it makes building fullstack React apps and sites a breaze and ships with bullt-in SSR.",
+    excerpt:
+      "NeatJS is a the React framework for production-it makes building fullstack React apps and sites a breaze and ships with bullt-in SSR.",
     date: "11-18-2023",
   },
 ];
 
-export default function Home() {
+export default function Home(props) {
   return (
     <Fragment>
       <Head>
@@ -45,7 +50,18 @@ export default function Home() {
       </Head>
 
       <Hero />
-      <FeaturedPosts posts={DUMMAY_DATA} />
+      <FeaturedPosts posts={props.posts} />
     </Fragment>
   );
+}
+
+export function getStaticProps() {
+  const featuredPosts = getFeaturedPosts();
+
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+    revalidate: 60,
+  };
 }
