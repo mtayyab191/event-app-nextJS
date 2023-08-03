@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import { GetStaticProps } from "next";
 import { getFeaturedPosts } from "../lib/posts-util";
 import Head from "next/head";
 import Hero from "@/Components/HomePages/Hero";

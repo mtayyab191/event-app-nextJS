@@ -24,4 +24,17 @@ function PostsContact() {
   );
 }
 
+
+// export function getStaticProps() {
+//   const featuredPosts = getFeaturedPosts();
+
+//   return {
+//     props: {
+//       posts: featuredPosts,
+//     },
+//     revalidate: 60,
+//   };
+// }
+
+
 export default PostsContact;
