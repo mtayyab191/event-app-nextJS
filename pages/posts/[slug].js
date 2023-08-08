@@ -1,6 +1,6 @@
 import PostsContact from "@/Components/posts/post-detail/post-contact";
 
-import { getPostsFiles, getPostData } from "@/lib/posts-util";
+import { getPostsFiles, getPostData } from "../../lib/posts-util";
 
 function PostsDetailsPage(props) {
   return <PostsContact post={props.post} />;
